@@ -1,0 +1,85 @@
+Machine Learning & AI Concepts:
+This document covers fundamental concepts in Machine Learning (ML), Deep Learning (DL), and related areas.
+
+1. Core Machine Learning Concepts
+Machine Learning (ML): Teaching computers to learn patterns from data without being explicitly programmed for every task.
+Simple Analogy: Like learning that Y = MX + C (equation of a line), where the machine learns the best 'M' (slope) and 'C' (intercept) from data points.
+Regression: Predicting a continuous value.
+Example: Predicting house prices based on features like size and location.
+Classification: Predicting a category or class label.
+Example: Classifying emails as 'Spam' or 'Not Spam'.
+Supervised Learning: Learning from data that has labeled outputs (like knowing the correct category for each input).
+Unsupervised Learning: Learning from data without predefined labels, finding hidden structures or patterns.
+2. Working with Data & Preprocessing
+Why Normalize/Scale Data? Features often have different ranges (e.g., age 0-100, income $0-$1,000,000). Normalization brings them to a common scale, preventing features with larger values from dominating the learning process.
+Example: In h = w1*age + w2*money + bias, the large range of money could overshadow age if not scaled.
+Normalization Techniques:
+Z-Score (Standardization):
+Formula: (data - mean) / standard_deviation
+Result: Rescales data to have a mean of 0 and a standard deviation of 1. Scale is roughly (-inf, +inf).
+Outlier Detection: Values outside a certain range (e.g., > 3 or < -3) are often considered outliers.
+Min-Max Scaling:
+Formula: (data - min) / (max - min)
+Result: Rescales data to a fixed range, usually [0, 1]. Largest value becomes 1, smallest becomes 0.
+Example: Scaling image pixel values (0-255) to [0, 1] by dividing by 255.0.
+Splitting Data: Divide your dataset into training and testing sets before training. The model learns from the training set and is evaluated on the unseen testing set.
+3. Model Training Fundamentals
+Weights and Biases (W and B): Parameters the model learns during training. Weights determine the influence of input features, and bias is an offset term.
+Forward Propagation: Input data flows through the model, calculations are performed, and an output (prediction) is generated. Errors are calculated by comparing the prediction to the actual value.
+Backward Propagation (Backprop): The calculated error is used to adjust the model's weights and biases, moving backward through the model layers. This is how the model learns.
+Loss Function: Measures how bad the model's prediction is compared to the actual target. The goal of training is to minimize this loss.
+Fitting (Algo.fit): The process of training the model on the training data.
+Hyperparameters: Settings for the training process itself (not learned from data), like learning rate or the number of layers in a neural network. They are tuned to optimize model performance.
+4. Model Evaluation
+Overfitting: The model learns the training data too well, including noise, and performs poorly on new, unseen data.
+Indicator: Test loss > Training loss.
+Good Fit: The model generalizes well to new data.
+Indicator: Test loss is close to Training loss, and both are low.
+Prediction (Algo.prediction): Using the trained model to make predictions on new data.
+Evaluation Metrics:
+Confusion Matrix: A table showing correct and incorrect predictions (True Positives, True Negatives, False Positives, False Negatives). Used for classification.
+Accuracy: (TP + TN) / Total - Overall correctness.
+Precision: TP / (TP + FP) - Out of all positive predictions, how many were actually positive? (Minimizes false positives).
+Recall: TP / (TP + FN) - Out of all actual positive cases, how many did the model find? (Minimizes false negatives).
+F1 Score: The harmonic mean of Precision and Recall, useful when balancing both is important.
+Regression Metrics: (e.g., Mean Squared Error, R-squared) - Used for evaluating regression models.
+5. Deep Learning (DL) Basics
+Deep Learning: A subset of ML using artificial neural networks with multiple layers (deep networks) to learn complex patterns.
+Neural Network Layers:
+Dense Layer: Every neuron is connected to every neuron in the previous layer.
+Convolutional Layer (Conv): Often used for image data, applies filters to detect spatial patterns.
+Activation Functions (Transfer Function): Introduce non-linearity, allowing networks to learn complex relationships.
+Sigmoid: Squashes values to a range of [0, 1]. Often used in output layers for binary classification (probabilistic).
+TanH (Hyperbolic Tangent): Squashes values to a range of [-1, 1].
+Embeddings: Dense vector representations of categorical data (like words or items). Similar items have similar vectors.
+Process: An embedding layer converts input (e.g., a word ID) into a fixed-size vector.
+Use Case: Finding the nearest vector in a database to find similar items/words.
+Vector Database: A database optimized for storing and querying high-dimensional vectors (embeddings).
+6. Advanced Models & Techniques
+Transfer Learning: Reusing parts of a pre-trained model (trained on a large dataset) for a new, related task. Saves training time and often improves performance, especially with limited data.
+Transformers: A powerful neural network architecture, excelling at sequence tasks (like language translation or text generation). Relies on attention mechanisms.
+Sequence-to-Sequence Modeling: Models that take a sequence as input and produce a sequence as output (e.g., machine translation, text summarization).
+7. Large Language Models (LLMs)
+LLM: Very large neural networks (billions of parameters, e.g., 10B-100B+) trained on vast amounts of text data. Capable of understanding and generating human-like text.
+Models: Can be text-only or multi-modal (handle text, images, etc.).
+Retrieval-Augmented Generation (RAG):
+Process: Before generating an answer, the system first retrieves relevant documents or information (e.g., from a database or internal files). Then, the LLM uses this retrieved context to generate a more accurate and grounded response.
+Purpose: Improves factual accuracy, reduces hallucinations, and allows LLMs to use up-to-date or private information.
+Langchain: A framework for building applications powered by LLMs, often used to create chains or pipelines (e.g., Retrieve -> Process -> Generate).
+8. MLOps & Tools
+MLOps (Machine Learning Operations): Practices for deploying and maintaining ML models reliably and efficiently in production.
+Tools & Platforms:
+TensorFlow: An open-source library for numerical computation and large-scale machine learning (including deep learning).
+Playground: playground.tensorflow.org is a web tool to visualize and experiment with neural networks.
+Spark: A distributed computing framework often used for large-scale data processing and ML.
+MLFlow: An open-source platform to manage the ML lifecycle (tracking experiments, packaging code, deploying models).
+KubeFlow: A platform for deploying, scaling, and managing ML workflows on Kubernetes.
+Data Warehouses: Systems for storing and analyzing large amounts of data (e.g., BigQuery, Synapse Analytics, Apache HBase).
+9. Data Analytics Concepts
+Types of Analytics:
+Descriptive: What happened? (e.g., summarizing past sales)
+Diagnostic: Why did it happen? (e.g., analyzing reasons for a sales dip)
+Predictive: What will happen? (e.g., forecasting future sales) - Note: The original text mentioned 'cognitive', which is less standard than 'predictive'.
+Prescriptive: What should we do about it? (e.g., recommending actions to increase sales)
+Correlation: Statistical relationship between two continuous variables (positive, negative, or zero).
+Central Tendency: Measures describing the center of a dataset (e.g., mean, median, mode).
